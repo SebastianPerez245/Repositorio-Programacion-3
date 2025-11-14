@@ -1,0 +1,36 @@
+ejercicio 15
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+    int n;
+    string nom[100];
+    double nota[100];
+
+    cin >> n;
+
+    for(int i=0; i<n; i++){
+        cin >> nom[i] >> nota[i];
+    }
+
+    for(int i=0; i<n-1; i++){
+        for(int j=0; j<n-1-i; j++){
+            if(nota[j] < nota[j+1]){
+                double auxN = nota[j];
+                nota[j] = nota[j+1];
+                nota[j+1] = auxN;
+
+                string auxA = nom[j];
+                nom[j] = nom[j+1];
+                nom[j+1] = auxA;
+            }
+        }
+    }
+
+    cout << "Top 3:\n";
+    for(int i=0; i<3; i++)
+        cout << nom[i] << " - " << nota[i] << endl;
+
+    return 0;
+}
