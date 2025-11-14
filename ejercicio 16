@@ -1,0 +1,61 @@
+ejercicio 16
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+    string alu[100];
+    double nota[100];
+    int n = 0, op;
+
+    do{
+        cout << "\n1) Ingresar alumno\n2) Listar\n3) Ordenar A-Z\n4) Mejor nota\n5) Promedio\n6) Salir\nOpcion: ";
+        cin >> op;
+
+        if(op == 1){
+            cout << "Nombre: ";
+            cin.ignore();
+            getline(cin, alu[n]);
+            cout << "Nota: ";
+            cin >> nota[n];
+            n++;
+        }
+
+        else if(op == 2){
+            for(int i=0; i<n; i++)
+                cout << alu[i] << " - " << nota[i] << endl;
+        }
+
+        else if(op == 3){
+            for(int i=0; i<n-1; i++)
+                for(int j=0; j<n-1-i; j++)
+                    if(alu[j] > alu[j+1]){
+                        swap(alu[j], alu[j+1]);
+                        swap(nota[j], nota[j+1]);
+                    }
+            cout << "Ordenado.\n";
+        }
+
+        else if(op == 4){
+            if(n == 0){ cout << "Sin alumnos\n"; continue; }
+            double m = nota[0];
+            int pos = 0;
+            for(int i=1; i<n; i++)
+                if(nota[i] > m){
+                    m = nota[i];
+                    pos = i;
+                }
+            cout << "Mejor nota: " << alu[pos] << " - " << m << endl;
+        }
+
+        else if(op == 5){
+            if(n == 0){ cout << "Sin alumnos\n"; continue; }
+            double s = 0;
+            for(int i=0; i<n; i++) s += nota[i];
+            cout << "Promedio = " << s/n << endl;
+        }
+
+    } while(op != 6);
+
+    return 0;
+}
