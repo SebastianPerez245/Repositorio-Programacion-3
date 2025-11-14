@@ -1,0 +1,21 @@
+ejercicio 7
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n;
+    string texto[] = {
+        "CERO","UNO","DOS","TRES","CUATRO","CINCO","SEIS","SIETE","OCHO",
+        "NUEVE","DIEZ","ONCE","DOCE","TRECE","CATORCE","QUINCE",
+        "DIECISEIS","DIECISIETE","DIECIOCHO","DIECINUEVE","VEINTE"
+    };
+
+    cin >> n;
+
+    if(n >= 0 && n <= 20)
+        cout << texto[n];
+    else
+        cout << "Fuera de rango";
+
+    return 0;
+}
