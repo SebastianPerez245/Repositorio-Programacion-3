@@ -1,0 +1,23 @@
+ejercicio 8
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n;
+    double v[100];
+
+    cin >> n;
+
+    for(int i=0; i<n; i++)
+        cin >> v[i];
+
+    double dif = 0;
+    for(int i=0; i<n-1; i++){
+        double d = v[i+1] - v[i];
+        if(d < 0) d = -d;
+        if(d > dif) dif = d;
+    }
+
+    cout << "Mayor diferencia = " << dif;
+    return 0;
+}
